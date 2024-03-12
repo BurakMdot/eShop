@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+option csharp_namespace = "eShop.Wishlist.API.Grpc";
+
+package WishlistApi;
+
+service Wishlist {
+  rpc GetWishlist(GetWishlistRequest) returns (CustomerWishlistResponse) {}
+  rpc UpdateWishlist(UpdateWishlistRequest) returns (CustomerWishlistResponse) {}
+  rpc DeleteWishlist(DeleteWishlistRequest) returns (DeleteWishlistResponse) {}
+}
+
+message GetWishlistRequest {
+}
+
+message CustomerWishlistResponse {
+  repeated WishlistItem items = 1;
+}
+
+message WishlistItem {
+  int32 product_id = 2;
+  int32 quantity = 6;
+}
+
+message UpdateWishlistRequest {
+  repeated WishlistItem items = 2;
+}
+
+message DeleteWishlistRequest {
+}
+
+message DeleteWishlistResponse {
+}
